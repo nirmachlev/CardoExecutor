@@ -1,14 +1,11 @@
 import sys
-
 from cmreslogging.handlers import CMRESHandler
-from cardoutils3.common import parse_argv
 
 from CardoExecutor.Common.Factory.Templates.Filters import WorkflowAndStepFilter, Level35Filter, NotLevel35Filter
 
 
 def get_config(level, environment, app_name, run_id):
     es_additional_fields = {"run_id": run_id, 'exec_command': ' '.join(sys.argv)}
-    es_additional_fields.update(parse_argv(sys.argv[1:]))
     return {
         "version": 1,
         "formatters": {
@@ -33,10 +30,7 @@ def get_config(level, environment, app_name, run_id):
                 "level": level,
                 "class": "cmreslogging.handlers.CMRESHandler",
                 "hosts": [
-                    {'host': 'your_elastic_host1', 'port': 9200},
-                    {'host': 'your_elastic_host2', 'port': 9200},
-                    {'host': 'your_elastic_host3', 'port': 9200},
-                    {'host': 'your_elastic_host4', 'port': 9200}
+                    {'host': '192.168.233.129', 'port': 9200}
                 ],
                 "es_index_name": "cardo_logs_{environment}".format(environment=environment),
                 "index_name_frequency": CMRESHandler.IndexNameFrequency.YEARLY,

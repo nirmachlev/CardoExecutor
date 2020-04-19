@@ -1,6 +1,5 @@
 from pyspark.serializers import cloudpickle as pickle
 import time
-
 from CardoExecutor.Common.CardoDataFrame import CardoDataFrame
 from CardoExecutor.Common.Tests.RuntimeTestableStep import RuntimeTestableStep
 from CardoExecutor.Contract.CardoContextBase import CardoContextBase
@@ -8,7 +7,7 @@ from CardoExecutor.Contract.IStep import step_to_hash_dict
 from CardoExecutor.Contract.IWorkflow import IWorkflow
 from CardoExecutor.Contract.IWorkflowExecutor import IWorkflowExecutor
 import hashlib
-
+import copy
 
 class LinearWorkflowExecutor(IWorkflowExecutor):
 	def __init__(self, test_wrapper=RuntimeTestableStep):
@@ -52,7 +51,7 @@ class LinearWorkflowExecutor(IWorkflowExecutor):
 			self.__calc_step_hash(dependencies, step)
 			dependencies_results = self.__get_dependency_results(cardo_context, dependencies, step, steps_results,
 			                                                     workflow)
-			dependencies_results = map(lambda cardo_dataframe: cardo_dataframe.deepcopy(), dependencies_results)
+			dependencies_results = map(lambda cardo_dataframe: copy.deepcopy(cardo_dataframe), dependencies_results)
 			steps_results[step] = self.__time_and_execute_step(step, cardo_context, dependencies_results)
 
 	def __calc_step_hash(self, dependencies, step):
