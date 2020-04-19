@@ -1,7 +1,7 @@
 def get_your_env1_config(app_name, executor_cores, executor_memory, max_cores, partitions):
 	return {
 		"spark.app.name": app_name,
-		"spark.master": "spark://192.168.1.117:7077",
+		"spark.master": "spark://192.168.49.1:7077",
 		"spark.executor.cores": str(executor_cores),
 		"spark.eventLog.enabled": "true",
 		"spark.executor.memory": str(executor_memory),

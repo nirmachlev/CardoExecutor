@@ -30,7 +30,7 @@ def get_config(level, environment, app_name, run_id):
                 "level": level,
                 "class": "cmreslogging.handlers.CMRESHandler",
                 "hosts": [
-                    {'host': '192.168.233.129', 'port': 9200}
+                    {'host': '127.0.0.1', 'port': 9200}
                 ],
                 "es_index_name": "cardo_logs_{environment}".format(environment=environment),
                 "index_name_frequency": CMRESHandler.IndexNameFrequency.YEARLY,
