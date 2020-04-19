@@ -1,0 +1,3 @@
+your link to cmreslogging repository
+yout link to cardoutils3 repository
+your link to pypi server
