@@ -9,7 +9,7 @@ from CardoExecutor.Common.Tests.DirectoryWatcher.DirectoryReloader import Direct
 from CardoExecutor.Common.Tests.DirectoryWatcher.DirectoryUpdateWatcher import DirectoryUpdateWatcher
 
 SPARK_DEFAULT_CONF = {
-	"app_name": "unittest", "environment": "dev", "partitions": 1, 'append_spark_config': {'spark.master': 'local', 'spark.jars': ''}
+	"app_name": "unittest", "environment": "dev", "partitions": 1, 'append_spark_config': {'spark.master': 'local', 'spark.jars': 'C:\Oracle\jdbc\ojdbc8.jar'}
 }
 WAIT_TIME_BETWEEN_CHECKS = 3
 

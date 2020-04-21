@@ -8,7 +8,7 @@ def get_your_env1_config(app_name, executor_cores, executor_memory, max_cores, p
 		"spark.cores.max": str(max_cores),
 		"spark.logConf": "true",
 		"spark.sql.shuffle.partitions": str(partitions),
-		"spark.jars": "",
+		"spark.jars": "C:\Oracle\jdbc\lib\ojdbc8.jar",
 		'spark.sql.catalogImplementation': 'hive'
 	}
 
